@@ -1,0 +1,269 @@
+@layer components {
+    .card {
+        @apply flex;
+        @apply flex-col;
+        @apply w-full lg:w-1/2;
+        @apply mt-12;
+        @apply px-8;
+    }
+    
+    .card-parent {
+        @apply lg:flex-row-reverse;
+        @apply w-full lg:w-full; 
+        @apply h-full;
+        @apply rounded-lg;
+        @apply shadow-lg;
+        @apply bg-gray-50;
+        @apply px-0;
+    }
+    
+    .card-parent.card-mirror {
+        @apply lg:flex-row;
+    }
+    
+    .card-sticky {
+        @apply flex-col md:flex-row;
+        @apply h-full; 
+        @apply rounded-lg;
+        @apply shadow-lg;
+        @apply bg-gray-50; 
+        @apply mx-12 md:mx-0;
+        @apply px-0;
+        @apply lg:w-full;
+    }
+    
+    .card-sticky.card-mirror {
+        @apply md:flex-row-reverse;
+    }
+    
+    .card-full {
+        @apply  max-w-full;
+        @apply lg:w-full;    
+    }
+    
+    .card-content {
+        @apply relative;
+        @apply bg-white;
+        @apply pl-4;
+        @apply p-6;
+        @apply -mt-40;
+        @apply -mr-4;
+        @apply ml-4;
+        @apply rounded-lg;
+        @apply shadow-lg;
+        @apply text-center lg:text-left;
+    }
+    
+    .card-parent .card-content {
+        @apply flex;
+        @apply flex-col;
+        @apply bg-transparent;
+        @apply pl-6;
+        @apply py-6;
+        @apply pr-6 md:pr-16;
+        @apply mt-0;
+        @apply mr-0;
+        @apply ml-0;
+        @apply rounded-none;
+        @apply shadow-none;
+        @apply text-left;
+        @apply w-full lg:w-3/5;
+        @apply h-full;
+    }
+    
+    .card-parent.card-mirror .card-content  {
+        @apply pl-16;
+        @apply pr-6;
+    }
+    
+    .card-sticky .card-content {
+        @apply flex;
+        @apply flex-col;
+        @apply bg-transparent;
+        @apply pl-0;
+        @apply p-0;
+        @apply px-6 md:px-16;
+        @apply py-4;
+        @apply mt-0;
+        @apply mr-0;
+        @apply ml-0;
+        @apply rounded-none;
+        @apply shadow-none;
+        @apply text-left;
+        @apply w-full md:w-3/5;
+        @apply h-full;
+    }
+    
+    .card:hover .card-content {
+        @apply shadow-xl;
+    }
+    
+    .card-sticky:hover .card-content {
+        @apply shadow-none;
+    } 
+    
+    .card-parent:hover .card-content {
+        @apply shadow-none;
+    }
+    
+    .card-header {
+        @apply text-center lg:text-left; 
+        @apply text-sm md:text-lg lg:text-xl;
+        @apply font-bold md:font-semibold;
+        @apply leading-tight;
+        @apply uppercase;
+        @apply truncate;    
+        @apply my-1;
+    }
+    
+    .card-parent .card-header {
+        @apply text-left;
+        @apply leading-normal;
+        @apply normal-case;
+        @apply overflow-clip;
+        @apply mt-2;
+        @apply mb-6;
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+        @apply font-bold;
+        @apply text-black;
+        @apply capitalize;
+        @apply font-amiri;
+    }
+    
+    .card-parent .card-header-small {
+        @apply pt-1;
+        @apply text-xs;
+        @apply font-bold;
+        @apply leading-tight;
+        @apply tracking-tight;
+        @apply text-center;
+        @apply uppercase;
+        @apply text-secondary;
+    }
+    
+    .card-sticky .card-header h2 {
+        @apply text-left;
+        @apply normal-case;
+        @apply overflow-clip;
+        @apply font-medium md:font-medium;
+        @apply mt-2;
+        @apply mb-6;
+        @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+        @apply text-black;
+        @apply font-amiri;
+    }
+    
+    .card-sticky .card-header h6 {
+        @apply text-left;
+        @apply text-xs;
+        @apply tracking-tight;
+        @apply leading-tight;
+        @apply text-secondary;
+        @apply font-bold;
+    }
+    
+    .card-image img {
+        @apply object-cover object-center;
+        @apply h-80;
+        @apply w-full;
+        @apply rounded-lg;
+        @apply shadow-md; 
+    }
+    
+    .card-parent .card-image img {
+        @apply h-full;
+        @apply max-h-full;
+        @apply min-h-3/4;
+        @apply mt-8; 
+        @apply mr-2 lg:mr-12;
+        @apply -mb-8;
+        @apply ml-0 lg:-ml-12;
+        @apply shadow-lg;
+    }
+    
+    .card-parent.card-mirror .card-image img {
+        @apply ml-2 lg:ml-12;
+        @apply lg:-mr-12;
+    }
+    
+    .card-parent .card-image {
+        @apply flex;
+        @apply items-start; 
+        @apply w-full lg:w-2/5; 
+        @apply h-auto;
+        @apply bg-gray-700;
+        @apply rounded-r-lg;
+        @apply lg:px-6;
+    }
+    
+    .card-parent.card-mirror .card-image {
+        @apply rounded-l-lg;
+    }
+    
+    .card-sticky .card-image {
+        @apply flex;
+        @apply items-start;
+        @apply w-full md:w-2/5;
+        @apply h-32 md:min-h-96;
+        @apply bg-gray-700;
+        @apply rounded-t-lg md:rounded-t-none;
+        @apply md:rounded-l-lg;
+        
+        
+    }
+    
+    .card-mirror.card-sticky .card-image {
+        @apply md:rounded-r-lg;
+        @apply md:rounded-l-none;
+    }
+    
+    .card-sticky .card-image img {
+        @apply max-h-full;
+        @apply mt-2 md:mt-8;
+        @apply -mr-3 md:-mr-12;
+        @apply -mb-2 md:-mb-8;
+        @apply ml-3 md:ml-12;
+        @apply min-h-3/4;
+    }
+    
+    .card-mirror.card-sticky.card-image img {
+        @apply ml-3 md:ml-12;
+        @apply -mr-3 md:-mr-12;
+    } 
+    
+    .card-link {
+        @apply w-60;
+        @apply mt-12;
+    }
+    
+    .card-parent .card-back {
+        @apply flex;
+        @apply items-center;
+        @apply mb-6;
+        @apply mt-6 lg:mt-0;
+    }
+    
+    .card-parent .card-back i,
+    .card-parent .card-back span {
+        @apply text-secondary;
+    }
+    .card-parent .card-back:hover i,
+    .card-parent .card-back:hover span {
+        @apply text-secondary-hover;
+    }
+    
+    .card-img {
+        @apply w-full;
+        @apply overflow-hidden;
+        @apply object-center object-cover;
+        @apply rounded-lg;
+        @apply -ml-12;
+        @apply mr-12;
+        @apply -mt-12;
+        @apply mb-8;
+        @apply rounded-lg;
+        @apply shadow-lg;
+        @apply h-40;
+    }
+    
+}

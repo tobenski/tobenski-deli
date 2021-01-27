@@ -61,43 +61,34 @@ class Tobenski_Deli_Public {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Tobenski_Deli_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Tobenski_Deli_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/tobenski-deli-public.css', array(), $this->version, 'all' );
 
 	}
 
+
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
+	 * Create the shortcode for displaying the deli menu.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.1
 	 */
-	public function enqueue_scripts() {
+	public function tobenski_deli_shortcode_func()
+	{
+		return include plugin_dir_path( __FILE__ ) . 'partials/tobenski-deli-view.php';
+	}
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Tobenski_Deli_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Tobenski_Deli_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/tobenski-deli-public.js', array( 'jquery' ), $this->version, false );
-
+	/**
+	 * Add a page-template to use with the deli slug.
+	 *
+	 * @since 1.0.1
+	 * @param string $template [Template location]
+	 * @return string [Template location]
+	 */
+	public function deli_page_template( $template ) {
+		// If not take-away page bail early
+		if (!is_page( 'deli' )) : return $template; endif;
+		
+		// replace the template file. 
+		return plugin_dir_path( __FILE__ ) . 'partials/tobenski-deli-page-template.php';
 	}
 
 }
