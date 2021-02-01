@@ -60,20 +60,7 @@ class Tobenski_Deli_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/tobenski-deli-public.css', array(), $this->version, 'all' );
-
-	}
-
-
-	/**
-	 * Create the shortcode for displaying the deli menu.
-	 *
-	 * @since 1.0.1
-	 */
-	public function tobenski_deli_shortcode_func()
-	{
-		return include plugin_dir_path( __FILE__ ) . 'partials/tobenski-deli-view.php';
 	}
 
 	/**
@@ -86,9 +73,10 @@ class Tobenski_Deli_Public {
 	public function deli_page_template( $template ) {
 		// If not take-away page bail early
 		if (!is_page( 'deli' )) : return $template; endif;
-		
+		//Add the stylesheet
+		$this->enqueue_styles();
 		// replace the template file. 
-		return plugin_dir_path( __FILE__ ) . 'partials/tobenski-deli-page-template.php';
+		return plugin_dir_path( __FILE__ ) . 'partials/page-deli.php';
 	}
 
 }
